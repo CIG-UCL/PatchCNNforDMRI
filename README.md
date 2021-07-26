@@ -4,7 +4,7 @@ Diffusion MRI (dMRI) can probe tissue microstructure properties by acquiring cer
 
 Taking the diffusion tensor imaging (DTI) model as an example, this demo builds neural networks to effectively solve the inverse problem of estimating fractional anisotropy (FA) and mean diffusivity (MD) measures from under-sampled diffusion dataset. The objectives of this project are to obtain 1) basic understanding of deep learning approaches applied in dMRI, 2) practical knowledge of essential components in building neural networks for diffusion model fitting.
 
-## Guidance of environment setting and packages installation
+## I. Guidance of environment setting and packages installation
 
 ### 1. Install Anaconda/Miniconda where you can use Conda commands to easily configure different environments
 
@@ -39,7 +39,7 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
 
     https://www.nitrc.org/frs/?group_id=152
 
-## Download the sample datasets and codes
+## II. Download the sample datasets and codes
 
 ### 1. Download the repository
 
@@ -60,7 +60,7 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
     S1_FA.nii            # the FA and MD measures estimated from DTI model ...
     S1_MD.nii            # using dtifit in FSL (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FDT/UserGuide#DTIFIT)
 
-## Running the demos
+## III. Running the demos
 
 ### Step 1: Choose the under-sampled image volumes from full diffusion dataset (the nifty files), and format and save training and testing data to .mat file; /datasets folder will be generated containing the formatted data.
 
