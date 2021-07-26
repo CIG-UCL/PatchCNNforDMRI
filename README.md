@@ -48,7 +48,8 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
 
 ### 2. Description about the datasets
 
-    The DTI dataset contains data from two subjects (S1; S2) extracted from a publicly available multi-centre dataset. Please refer to the paper for full dataset and imaging parameters: https://www.nature.com/articles/s41597-020-0493-8
+    The DTI dataset contains data from two subjects (S1; S2) extracted from a publicly available multi-centre dataset. 
+    Please refer to the paper for full dataset and imaging parameters: https://www.nature.com/articles/s41597-020-0493-8
 
     Folder structure:
     # subject folder S1 
