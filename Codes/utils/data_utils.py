@@ -56,6 +56,85 @@ def gen_dMRI_fc1d_train_datasets(path, subject, ndwi, scheme, combine=None, whit
     savemat('datasets/data/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '1d.mat', {'data':data})
     savemat('datasets/label/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '1d.mat', {'label':label})
 
+def gen_2d_patches(data, mask, size, stride):
+    """
+    generate 2d patches
+    """
+    patches = []
+    for layer in range(mask.shape[2]):
+        for x in np.arange(0, mask.shape[0], stride):
+            for y in np.arange(0, mask.shape[1], stride):
+                xend, yend = np.array([x, y]) + size
+                lxend, lyend = np.array([x, y]) + stride
+                if mask[x:lxend, y:lyend, layer].sum() > 0:
+                    patches.append(data[x:xend, y:yend, layer, :])
+
+    return np.array(patches)
+
+def gen_3d_patches(data, mask, size, stride):
+    """
+    generate 3d patches
+    """
+    #print data.shape, mask.shape
+    patches = []
+    for layer in np.arange(0, mask.shape[2], stride):
+        for x in np.arange(0, mask.shape[0], stride):
+            for y in np.arange(0, mask.shape[1], stride):
+                xend, yend, layerend = np.array([x, y, layer]) + size
+                lxend, lyend, llayerend = np.array([x, y, layer]) + stride
+                if mask[x:lxend, y:lyend, layer:llayerend].sum() > 0:
+                    patches.append(data[x:xend, y:yend, layer: layerend, :])
+    #print np.array(patches).shape
+    return np.array(patches)
+
+def gen_dMRI_conv2d_train_datasets(subject, ndwi, scheme, patch_size, label_size, base=1, test=False):
+    """
+    Generate Conv2D Dataset.
+    """
+    offset = base - (patch_size - label_size) / 2
+
+    labels = ('datasets/label/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '1d.mat', {'label':label})
+    labels = labels[base:-base, base:-base, base:-base, :]
+    mask = load_nii_image('datasets/mask/mask_' + subject + '.nii')
+    mask = mask[base:-base, base:-base, base:-base]
+    
+    data = loadmat('datasets/data/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '1d.mat', {'data':data})
+    data = data[:, :, base:-base, :]
+
+    if offset:
+        data = data[offset:-offset, offset:-offset, :, :12]
+
+    patches = gen_2d_patches(data, mask, patch_size, label_size)
+    labels = gen_2d_patches(labels, mask, label_size, label_size)
+
+    savemat('datasets/data/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '2d.mat', {'data':patches})
+    savemat('datasets/label/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '2d.mat', {'label':labels})
+
+def gen_dMRI_conv3d_train_datasets(subject, ndwi, scheme, patch_size, label_size, base=1, test=False):
+    """
+    Generate Conv3D Dataset.
+    """
+    offset = base - (patch_size - label_size) / 2
+
+    labels = ('datasets/label/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '1d.mat', {'label':label})
+    labels = labels[base:-base, base:-base, base:-base, :]
+    mask = load_nii_image('datasets/mask/mask_' + subject + '.nii')
+    mask = mask[base:-base, base:-base, base:-base]
+    
+    data = loadmat('datasets/data/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '1d.mat', {'data':data})
+    data = data[:, :, base:-base, :]
+
+    if offset:
+        data = data[offset:-offset, offset:-offset, :, :12]
+
+    patches = gen_3d_patches(data, mask, patch_size, label_size)
+    patches = patches.reshape(patches.shape[0], -1)
+
+    labels = gen_3d_patches(labels, mask, label_size, label_size)
+
+    savemat('datasets/data/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '3d.mat', {'data':patches})
+    savemat('datasets/label/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '3d.mat', {'label':labels})
+
 def gen_dMRI_test_datasets(path, subject, ndwi, scheme, combine=None,  fdata=True, flabel=True, whiten=True):
     """
     Generate testing Datasets.
@@ -89,16 +168,23 @@ def gen_dMRI_test_datasets(path, subject, ndwi, scheme, combine=None,  fdata=Tru
         print(label.shape)
         savemat('datasets/label/' + subject+ '-' + str(ndwi) + '-' + scheme + '.mat', {'label':label})
 
-def fetch_train_data_MultiSubject(subjects, ndwi, scheme):
+def fetch_train_data_MultiSubject(subjects, model, ndwi, scheme):
     """
     #Fetch train data.
     """
     data_s = None
     labels = None
 
+    if model[:4] == 'fc1d'
+        dim='1d.mat'
+    if model[:6] == 'conv2d':
+        dim='2d.mat'
+    if model[:6] == 'conv3d':
+        dim='3d.mat'
+
     for subject in subjects:
-        label = loadmat('datasets/label/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '1d.mat')['label']
-        data = loadmat('datasets/data/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '1d.mat')['data']
+        label = loadmat('datasets/label/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + dim)['label']
+        data = loadmat('datasets/data/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + dim)['data']
 
         if data_s is None:
             data_s = data
