@@ -8,7 +8,7 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
 
 ### 1. Install Anaconda/Miniconda where you can use Conda commands to easily configure different environments
 
-    Follow the installation here: <a href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html"</a>
+    Follow the installation here: <a href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">Google</a>
 
 ### 2. Setting up the environment for Python version of 3.7 
 
@@ -37,7 +37,7 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
     
 ### 4. Download MRIcron for convenient visualisation of Nifty image files
 
-    https://www.nitrc.org/frs/?group_id=152
+    (https://www.nitrc.org/frs/?group_id=152)
 
 ## II. Download the sample datasets and codes
 
