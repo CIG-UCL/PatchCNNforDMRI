@@ -175,7 +175,7 @@ def fetch_train_data_MultiSubject(subjects, model, ndwi, scheme):
     data_s = None
     labels = None
 
-    if model[:4] == 'fc1d'
+    if model[:4] == 'fc1d':
         dim='1d.mat'
     if model[:6] == 'conv2d':
         dim='2d.mat'

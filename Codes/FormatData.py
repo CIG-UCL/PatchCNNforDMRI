@@ -25,7 +25,7 @@ Usage:
 import argparse
 import numpy as np
 
-from utils import gen_dMRI_test_datasets, gen_dMRI_fc1d_train_datasets
+from utils import gen_dMRI_test_datasets, gen_dMRI_fc1d_train_datasets, gen_dMRI_conv2d_train_datasets, gen_dMRI_conv3d_train_datasets
 
 
 parser = argparse.ArgumentParser()
@@ -46,6 +46,11 @@ subjects = args.subjects
 fc1d_train = args.fc1d_train
 test = args.test
 Nolabel = args.Nolabel
+
+conv2d_train = args.conv2d_train
+conv3d_train = args.conv3d_train
+patch_size = 3
+label_size = 1
 
 # determin the input volumes using the first n volumes
 nDWI = args.nDWI
@@ -74,10 +79,10 @@ if fc1d_train:
 if conv2d_train:
     for subject in subjects:
         gen_dMRI_fc1d_train_datasets(path, subject, nDWI, scheme, combine, whiten=True)
-        gen_dMRI_conv2d_train_datasets(subject, ndwi, scheme, patch_size, label_size, base=1, test=False):
+        gen_dMRI_conv2d_train_datasets(subject, nDWI, scheme, patch_size, label_size, base=1, test=False)
 
 if conv3d_train:
     for subject in subjects:
         gen_dMRI_fc1d_train_datasets(path, subject, nDWI, scheme, combine, whiten=True)
-        gen_dMRI_conv3d_train_datasets(subject, ndwi, scheme, patch_size, label_size, base=1, test=False):
+        gen_dMRI_conv3d_train_datasets(subject, nDWI, scheme, patch_size, label_size, base=1, test=False)
 

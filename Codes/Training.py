@@ -65,7 +65,7 @@ if train:
 
     model.model(adam, loss_funcs[loss], patch_size)
 
-    data, label = fetch_train_data_MultiSubject(train_subjects, nDWI, scheme)
+    data, label = fetch_train_data_MultiSubject(train_subjects, mtype, nDWI, scheme)
 
     reduce_lr = ReduceLROnPlateau(monitor="loss", factor=0.5, patience=10, epsilon=0.0001)
     tensorboard = TensorBoard(histogram_freq=0)
