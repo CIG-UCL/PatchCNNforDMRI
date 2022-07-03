@@ -8,7 +8,7 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
 
 ### 1. Install Anaconda/Miniconda where you can use Conda commands to easily configure different environments
 
-    Follow the installation here: (https://conda.io/projects/conda/en/latest/user-guide/install/index.html) targ
+    Follow the installation here: <https://conda.io/projects/conda/en/latest/user-guide/install/index.html> targ
 
 ### 2. Setting up the environment for Python version of 3.7 
 
@@ -37,21 +37,21 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
     
 ### 4. Download MRIcron for convenient visualisation of Nifty image files
 
-    (https://www.nitrc.org/frs/?group_id=152)
+    <https://www.nitrc.org/frs/?group_id=152>
 
 ## II. Download the sample datasets and codes
 
 ### 1. Download the repository
 
     You can download the repository to your local system via the following command:
-    git clone https://github.com/Tinggong/DTIwithNeuralNetworkDemo
+    git clone <https://github.com/Tinggong/DTIwithNeuralNetworkDemo>
 
 ### 2. Description about the datasets
 
-    The dataset can be downloaded here: https://drive.google.com/file/d/1aDoU8CJ695Xsm1C9uGnKvq0XOtgmgfwn/view?usp=sharing  
+    The dataset can be downloaded here: <https://drive.google.com/file/d/1aDoU8CJ695Xsm1C9uGnKvq0XOtgmgfwn/view?usp=sharing>  
 
     The DTI dataset contains data from two subjects (S1; S2) extracted from a publicly available multi-centre dataset. 
-    Please refer to the paper for full dataset and imaging parameters: https://www.nature.com/articles/s41597-020-0493-8
+    Please refer to the paper for full dataset and imaging parameters: <https://www.nature.com/articles/s41597-020-0493-8>
 
     Folder structure:
     # subject folder S1 
@@ -60,7 +60,7 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
     diffusion.nii        # the diffusion dataset
     nodif_brain_mask.nii # the binary brain mask
     S1_FA.nii            # the FA and MD measures estimated from DTI model ...
-    S1_MD.nii            # using dtifit in FSL (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FDT/UserGuide#DTIFIT)
+    S1_MD.nii            # using dtifit in FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FDT/UserGuide#DTIFIT>
 
 ## III. Running the demos
 
