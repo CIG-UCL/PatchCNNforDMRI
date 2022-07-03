@@ -8,7 +8,7 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
 
 ### 1. Install Anaconda/Miniconda where you can use Conda commands to easily configure different environments
 
-    Follow the installation here: <a href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">Google</a>
+    Follow the installation here: (https://conda.io/projects/conda/en/latest/user-guide/install/index.html) targ
 
 ### 2. Setting up the environment for Python version of 3.7 
 
