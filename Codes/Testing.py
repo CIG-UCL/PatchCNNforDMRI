@@ -54,6 +54,12 @@ adam = Adam(lr=lr, beta_1=0.9, beta_2=0.999, epsilon=1e-8)
 mask = load_nii_image('datasets/mask/mask_' + test_subject + '.nii')
 tdata = loadmat('datasets/data/' + test_subject + '-' + str(nDWI) + '-' + scheme + '.mat')['data']
 
+# Reshape the data to suit the model.
+if mtype[:6] == 'conv3d':
+  tdata = np.expand_dims(tdata, axis=0)
+elif mtype[:6] == 'conv2d':
+  tdata = tdata.transpose((2, 0, 1, 3))
+
 test_shape = args.test_shape
 if test_shape is None:
   test_shape = tdata.shape[1:4]

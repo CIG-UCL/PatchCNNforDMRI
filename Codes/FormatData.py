@@ -78,11 +78,11 @@ if fc1d_train:
 
 if conv2d_train:
     for subject in subjects:
-        gen_dMRI_fc1d_train_datasets(path, subject, nDWI, scheme, combine, whiten=True)
+        gen_dMRI_test_datasets(path, subject, nDWI, scheme, combine, fdata=True, flabel=True, whiten=True)
         gen_dMRI_conv2d_train_datasets(subject, nDWI, scheme, patch_size, label_size, base=1, test=False)
 
 if conv3d_train:
     for subject in subjects:
-        gen_dMRI_fc1d_train_datasets(path, subject, nDWI, scheme, combine, whiten=True)
+        gen_dMRI_test_datasets(path, subject, nDWI, scheme, combine, fdata=True, flabel=True, whiten=True)
         gen_dMRI_conv3d_train_datasets(subject, nDWI, scheme, patch_size, label_size, base=1, test=False)
 
