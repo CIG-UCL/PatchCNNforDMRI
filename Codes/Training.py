@@ -2,6 +2,7 @@
 Main script for network training and testing
 Definition of the command-line arguments are in model.py and can be displayed by `python Training.py -h`
 
+Author: Ting Gong 
 """
 
 import numpy as np

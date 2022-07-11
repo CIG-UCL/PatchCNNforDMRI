@@ -16,11 +16,13 @@ Usage:
 
       (add --Nolabel option if the testing dataset doesn't contain labels)
 
-3. To generate patch-based training dataset for the first N volumes of a full dataset or from a scheme file:
+3. To generate 2D/3D-patch-based training dataset for the first N volumes of a full dataset or from a scheme file:
+
     python FormatData.py --path $DataDir --subjects S1 --nDWI N --conv2d_train 
   
     python FormatData.py --path $DataDir --subjects S1 --scheme scheme1 --conv3d_train 
 
+Author: Ting Gong
 """
 import argparse
 import numpy as np

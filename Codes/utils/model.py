@@ -3,6 +3,7 @@ Module definition for network training and testing.
 
 Define your new model here
 
+Author: Ting Gong
 """
 
 import os

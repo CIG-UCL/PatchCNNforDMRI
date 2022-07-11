@@ -1,5 +1,7 @@
 """
 Generate and save .mat data for new datasets.
+
+Author: Ting Gong
 """
 
 import os

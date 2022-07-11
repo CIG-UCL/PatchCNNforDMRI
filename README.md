@@ -26,14 +26,14 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
     conda activate your_env_name
 
     # Install tensorflow (which now includes keras) these two librarys are used for deep learning in python
-    pip install tensorflow==2.3.1
+    pip3 install tensorflow==2.3.1
 
     # Install scipy and numpy these libraries are used for performing mathmatical calculations on datasets 
-    pip install scipy
-    pip install numpy==1.17.0
+    pip3 install scipy
+    pip3 install numpy==1.17.0
 
     # Install nipy, this library is used for loading NIfTI images (.nii/.nii.gz). This is how MRI images are normally saved
-    pip install nipy==0.4.2
+    pip3 install nipy==0.4.2
     
 ### 4. Download MRIcron for convenient visualisation of Nifty image files
 
@@ -67,7 +67,7 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
 ### Step 1: Choose the under-sampled image volumes from full diffusion dataset (the nifty files), and format and save training and testing data to .mat file; /datasets folder will be generated containing the formatted data.
 
     # a. Formatting training dataset with the first 10 image volumes from the full diffusion dataset
-        python FormatData.py --path /Your/Data/Dir/Data-DTI --subjects S1 --nDWI 10 --fc1d_train 
+        python3 FormatData.py --path /Your/Data/Dir/Data-DTI --subjects S1 --nDWI 10 --fc1d_train 
   
         # You can also format training dataset with a scheme file contained in the ${NetDir}/schemes folder, 
         # which are 1 for the target image volumes to choose and 0 for all other volumes. (see example file scheme1)
@@ -76,13 +76,13 @@ Taking the diffusion tensor imaging (DTI) model as an example, this demo builds 
 
 
     # b. Formatting test dataset (add --Nolabel option if the dataset contains no available labels
-        python FormatData.py --path $DataDir --subjects S2 --nDWI 10 --test
+        python3 FormatData.py --path $DataDir --subjects S2 --nDWI 10 --test
 
 ### Step 2: network training; Check all available options and default values in /utils/model.py; /weights folder will be generated containing the trained model.
 
     # Using the first 10 volumes; you can also use a scheme file to determined the input DWI volumes. 
-        python Training.py --train_subjects S1 --DWI 10 --model fc1d --train 
+        python3 Training.py --train_subjects S1 --DWI 10 --model fc1d --train 
 
 ### Step 3: Test the model with dataset from S2; weights are saved from previous training; /nii folder will be generated containing the estimated parameters from testing data in nifty format, and you can view the results with MRIcron.
 
-        python Testing.py --test_subject S2 --DWI 10 --model fc1d
+        python3 Testing.py --test_subject S2 --DWI 10 --model fc1d
