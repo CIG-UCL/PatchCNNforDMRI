@@ -129,8 +129,6 @@ def gen_dMRI_conv3d_train_datasets(subject, ndwi, scheme, patch_size, label_size
         data = data[offset:-offset, offset:-offset, :, :12]
 
     patches = gen_3d_patches(data, mask, patch_size, label_size)
-    patches = patches.reshape(patches.shape[0], -1)
-
     label = gen_3d_patches(label, mask, label_size, label_size)
 
     savemat('datasets/data/' + subject + '-' + str(ndwi) + '-' + scheme + '-' + '3d.mat', {'data':patches})
@@ -197,9 +195,6 @@ def fetch_train_data_MultiSubject(subjects, model, ndwi, scheme):
 
     data = np.array(data_s)
     label = np.array(labels)
-
-    if model[:6] == 'conv3d':
-        data = data.reshape(data.shape[0], 3, 3, 3, -1)
 
     return data, label
 
