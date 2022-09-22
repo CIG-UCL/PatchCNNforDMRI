@@ -4,6 +4,10 @@ Diffusion MRI (dMRI) can probe tissue microstructure properties by acquiring cer
 
 Taking the diffusion tensor imaging (DTI) model as an example, this demo builds patch-based and voxel-based neural networks to effectively solve the inverse problem of estimating fractional anisotropy (FA) and mean diffusivity (MD) measures from under-sampled diffusion dataset. The objectives of this project are to obtain 1) basic understanding of deep learning approaches applied in dMRI, 2) practical knowledge of essential components in building neural networks for diffusion model fitting.
 
+References
+[1] Gong, T., et al. (2018).  Efficient Reconstruction of Diffusion Kurtosis Imaging Based on a Hierarchical Convolutional Neural Network. Presented at: the 26th ISMRM Annual Meeting.
+[2] Li, Z., et al. (2019).  Fast and Robust Diffusion Kurtosis Parametric Mapping Using a Three-Dimensional Convolutional Neural Network. IEEE Access, 7, 71398-71411: https://doi.org/10.1109/access.2019.2919241
+
 ## I. Guidance of environment setting and packages installation
 
 ### 1. Install Anaconda/Miniconda where you can use Conda commands to easily configure different environments
