@@ -1,8 +1,8 @@
-# DTIwithNeuralNetworkDemo
+# PatchCNNforDMRI
 
 Diffusion MRI (dMRI) can probe tissue microstructure properties by acquiring certain amount of dMRI measurements and solving the inverse problem of a diffusion model. Conventional model fitting-based methods usually require large amount of dMRI measurements with long acquisition time, which can be highly accelerated by deep learning-based methods through neural networks.
 
-Taking the diffusion tensor imaging (DTI) model as an example, this demo builds neural networks to effectively solve the inverse problem of estimating fractional anisotropy (FA) and mean diffusivity (MD) measures from under-sampled diffusion dataset. The objectives of this project are to obtain 1) basic understanding of deep learning approaches applied in dMRI, 2) practical knowledge of essential components in building neural networks for diffusion model fitting.
+Taking the diffusion tensor imaging (DTI) model as an example, this demo builds patch-based and voxel-based neural networks to effectively solve the inverse problem of estimating fractional anisotropy (FA) and mean diffusivity (MD) measures from under-sampled diffusion dataset. The objectives of this project are to obtain 1) basic understanding of deep learning approaches applied in dMRI, 2) practical knowledge of essential components in building neural networks for diffusion model fitting.
 
 ## I. Guidance of environment setting and packages installation
 
